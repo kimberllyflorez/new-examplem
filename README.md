@@ -2,6 +2,8 @@
 
 A new Flutter project.
 
+is an exmple for using github
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
