@@ -1,3 +1,4 @@
+import 'package:example_whit_github/AppRouter/approuter.dart';
 import 'package:example_whit_github/screens/screens.dart';
 import 'package:flutter/material.dart';
 
@@ -11,11 +12,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material App',
-      home: LoginScreen(),
+      initialRoute: AppRoutes.initalRoute,
       routes: {
-        'login': (_) => LoginScreen(),
-        'home': (_)=>Home(),
-        'profile': (_) => Profile()
+        'login'   : (_) => LoginScreen(),
+        'home'    : (_)=>Home(),
+        'profile' : (_) => Profile()
       },
     );
   }

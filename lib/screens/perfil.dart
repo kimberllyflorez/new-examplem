@@ -7,16 +7,15 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
             appBar: AppBar(
-        title: Text('welcom to home'),
+        title: const Text('welcom to home'),
       ),
       body: Center(
-
         child: ElevatedButton(
             onPressed: ()  {
               Navigator.pushNamed(context, 'profile');
             },
-            child: Text('click for edit your profile')
-
+            child: const Text('click for edit your profile',
+              textAlign: TextAlign.center,)
         )
       ),
     );

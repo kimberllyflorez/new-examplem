@@ -14,25 +14,29 @@ class LoginScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const TextField(
-             decoration:  InputDecoration(
+          const Center(
+            child: TextField(
+              textAlign: TextAlign.center,
+              decoration: InputDecoration(
                 border: InputBorder.none,
-                 hintText: 'Please introduce your first name'),
+                hintText: 'Please introduce your first name',
+              ),
+            ),
           ),
-         const TextField(
-            decoration: InputDecoration(
-                border: InputBorder.none,
-                hintText: 'Please introduce your second name'),
+          const Center(
+            child: TextField(
+              textAlign: TextAlign.center,
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'Please introduce your second name'),
+            ),
           ),
           ElevatedButton(
-              onPressed: ()  {
+              onPressed: () {
                 Navigator.pushNamed(context, 'home');
               },
-              child: Text('ingresar')
-
-          )
+              child: const Text('ingresar'))
         ],
-
       ),
     );
   }
