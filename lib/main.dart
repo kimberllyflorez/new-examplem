@@ -1,23 +1,18 @@
-import 'package:example_whit_github/AppRouter/approuter.dart';
-import 'package:example_whit_github/screens/screens.dart';
+import 'package:example_whit_github/approuter/approuter.dart';
 import 'package:flutter/material.dart';
 
-
-
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material App',
       initialRoute: AppRoutes.initalRoute,
-      routes: {
-        'login'   : (_) => LoginScreen(),
-        'profil'    : (_)=>Home(),
-        'imagen' : (_) => Profile()
-      },
+      routes: AppRoutes.routes
     );
   }
 }

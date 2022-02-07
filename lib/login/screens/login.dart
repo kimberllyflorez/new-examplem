@@ -1,4 +1,4 @@
-import 'package:example_whit_github/screens/perfil.dart';
+import 'package:example_whit_github/home/screens/home.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
