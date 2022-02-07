@@ -33,7 +33,7 @@ class LoginScreen extends StatelessWidget {
           ),
           ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, 'profil');
+                Navigator.pushNamed(context, 'home');
               },
               child: const Text('ingresar'))
         ],
