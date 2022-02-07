@@ -1,4 +1,5 @@
 import 'package:example_whit_github/home/screens/home.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -33,7 +34,7 @@ class LoginScreen extends StatelessWidget {
           ),
           ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, 'home');
+                Navigator.pushNamed(context, '/');
               },
               child: const Text('ingresar'))
         ],
