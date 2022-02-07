@@ -1,3 +1,4 @@
+import 'package:example_whit_github/Widgets/screens/custom_Text_Field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +8,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         color: Colors.greenAccent,
         width: double.infinity,
@@ -14,20 +16,20 @@ class LoginScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 60),
-            Icon(
+            const SizedBox(height: 60),
+            const Icon(
               Icons.star_border,
               color: Colors.white,
               size: 50.0,
             ),
-            Text(
+            const Text(
               'Login',
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 40,
                   fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 60),
+            const SizedBox(height: 60),
             Expanded(
               child: Container(
                 padding: EdgeInsets.all(30),
@@ -39,6 +41,7 @@ class LoginScreen extends StatelessWidget {
                         topLeft: Radius.circular(50))),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -53,49 +56,43 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const Text('Email Adress '),
-                    const TextField(
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(
-                          Icons.email,
-                          color: Colors.green,
-                        ),
-                        border: OutlineInputBorder(),
-                        hintText: 'email',
-                      ),
+                    const CustomTextField(
+                      labelText: 'email',
+                      labelHintText: 'email',
+                      labelIcon: Icons.email,
                     ),
-                    const Text('Password '),
-                    const TextField(
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.password_rounded,
-                          color: Colors.green,),
-                        border: OutlineInputBorder(),
-                        hintText: 'password',
-                      ),
+                    const CustomTextField(
+                      labelText: 'password',
+                      labelHintText: 'password',
+                      labelIcon: Icons.password_rounded,
                     ),
+                    const Text(
+                      'Forgot PassWord',
+                      style: TextStyle(color: Colors.green),
+                    ),
+                    Center(
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.green),
+                            shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    side: BorderSide(color: Colors.green)))),
+                        onPressed: () {
+                          Navigator.pushNamed(context, 'home');
+                        },
 
-                    const Text('Forgot PassWord'),
-                    ElevatedButton(
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.green),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      side: BorderSide(color: Colors.green)))),
-                      onPressed: () {
-                        Navigator.pushNamed(context, 'home');
-                      },
+                          child: Text('Login'),
 
-                      child: Text('Login'),
+                      ),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
                         Text('Do not have an account?'),
-                        Text(
-                          'Sing in',
+                        Text('Sing in',
                           style: TextStyle(color: Colors.green),
                         ),
                       ],
