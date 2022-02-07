@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
       initialRoute: AppRoutes.initalRoute,
       routes: {
         'login'   : (_) => LoginScreen(),
-        'home'    : (_)=>Home(),
-        'profile' : (_) => Profile()
+        'profil'    : (_)=>Home(),
+        'imagen' : (_) => Profile()
       },
     );
   }

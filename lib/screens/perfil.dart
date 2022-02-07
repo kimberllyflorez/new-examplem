@@ -12,7 +12,7 @@ class Home extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
             onPressed: ()  {
-              Navigator.pushNamed(context, 'profile');
+              Navigator.pushNamed(context, 'imagen');
             },
             child: const Text('click for edit your profile',
               textAlign: TextAlign.center,)

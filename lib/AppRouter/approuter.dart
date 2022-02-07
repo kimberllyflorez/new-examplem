@@ -4,6 +4,6 @@ import 'package:flutter/material.dart';
 
 
 class AppRoutes {
-  static final initalRoute = 'home';
+  static final initalRoute = 'login';
 
 }
