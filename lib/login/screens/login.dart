@@ -1,108 +1,127 @@
-import 'package:example_whit_github/Widgets/screens/custom_Text_Field.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:example_whit_github/theme/custom_colors.dart';
+import 'package:example_whit_github/widgets/text_fields/custom_text_field.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Container(
-        color: Colors.greenAccent,
-        width: double.infinity,
-        height: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(height: 60),
-            const Icon(
-              Icons.star_border,
-              color: Colors.white,
-              size: 50.0,
-            ),
-            const Text(
-              'Login',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 60),
-            Expanded(
-              child: Container(
-                padding: EdgeInsets.all(30),
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(50),
-                        topLeft: Radius.circular(50))),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Text(
-                          'Log in ',
-                          style: TextStyle(color: Colors.green, fontSize: 20),
-                        ),
-                        Text(
-                          'your accont.',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ],
-                    ),
-                    const CustomTextField(
-                      labelText: 'email',
-                      labelHintText: 'email',
-                      labelIcon: Icons.email,
-                    ),
-                    const CustomTextField(
-                      labelText: 'password',
-                      labelHintText: 'password',
-                      labelIcon: Icons.password_rounded,
-                    ),
-                    const Text(
-                      'Forgot PassWord',
-                      style: TextStyle(color: Colors.green),
-                    ),
-                    Center(
-                      child: ElevatedButton(
-                        style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.green),
-                            shape: MaterialStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    side: BorderSide(color: Colors.green)))),
-                        onPressed: () {
-                          Navigator.pushNamed(context, 'home');
-                        },
+      backgroundColor: CustomColors.primaryColor,
+      body: _body(),
+    );
+  }
 
-                          child: Text('Login'),
+  Widget _body() {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          _logo(),
+          _form(),
+        ],
+      ),
+    );
+  }
 
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Text('Do not have an account?'),
-                        Text('Sing in',
-                          style: TextStyle(color: Colors.green),
-                        ),
-                      ],
-                    ),
-                  ],
+  Widget _logo() {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.30,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: const [
+          SizedBox(height: 60),
+          Icon(
+            Icons.star_border,
+            color: Colors.white,
+            size: 50.0,
+          ),
+          Text(
+            'Login',
+            style: TextStyle(
+                color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 60),
+        ],
+      ),
+    );
+  }
+
+  Widget _form() {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.7,
+      padding: const EdgeInsets.all(30),
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(50),
+          topLeft: Radius.circular(50),
+        ),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text(
+                'Log in ',
+                style: TextStyle(
+                  color: CustomColors.primaryColor,
+                  fontSize: 20,
                 ),
               ),
+              Text(
+                'your accont.',
+                style: TextStyle(fontSize: 20),
+              ),
+            ],
+          ),
+          const CustomTextField(
+            labelText: 'Email',
+            labelHintText: 'example@email.com',
+            labelIcon: Icons.email,
+          ),
+          const CustomTextField(
+            labelText: 'Password',
+            labelHintText: '********',
+            labelIcon: Icons.lock,
+          ),
+          const SizedBox(
+            width: double.infinity,
+            child: Text(
+              'Forgot Password',
+              style: TextStyle(color: CustomColors.primaryColor),
+              textAlign: TextAlign.right,
             ),
-          ],
-        ),
+          ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.3,
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, 'home');
+              },
+              child: const Text('Login'),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text('Do not have an account? '),
+              Text(
+                'Sign in',
+                style: TextStyle(
+                  color: CustomColors.primaryColor,
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
