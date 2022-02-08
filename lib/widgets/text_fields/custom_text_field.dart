@@ -1,17 +1,22 @@
+import 'package:example_whit_github/theme/custom_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
+  final TextEditingController? controller;
   final String labelText;
   final String labelHintText;
-  final IconData labelIcon;
+  final IconData? labelIcon;
   final Color globalColor;
+  final bool enable;
 
   const CustomTextField({
     Key? key,
     required this.labelText,
     required this.labelHintText,
-    required this.labelIcon,
-    this.globalColor = Colors.green,
+    this.controller,
+    this.labelIcon,
+    this.globalColor = CustomColors.primaryColor,
+    this.enable = true,
   }) : super(key: key);
 
   @override
@@ -20,22 +25,26 @@ class CustomTextField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(labelText),
-        SizedBox(height: 5),
+        const SizedBox(height: 5),
         TextField(
+          controller: controller,
+          enabled: enable,
           decoration: InputDecoration(
-            prefixIcon: Icon(
-              labelIcon,
-              color: globalColor,
-            ),
+            contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+            prefixIcon: labelIcon != null
+                ? Icon(
+                    labelIcon,
+                    color: globalColor,
+                  )
+                : null,
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
               borderSide: BorderSide(color: globalColor, width: 1.0),
             ),
             border: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 1.0),
+              borderSide: const BorderSide(color: Colors.black, width: 1.0),
               borderRadius: BorderRadius.circular(15),
             ),
-
             hintText: labelHintText,
           ),
         ),

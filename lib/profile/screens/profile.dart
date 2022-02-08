@@ -1,3 +1,4 @@
+import 'package:example_whit_github/widgets/text_fields/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatefulWidget {
@@ -82,28 +83,31 @@ class _ProfileState extends State<Profile> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            TextField(
+            CustomTextField(
               controller: _userNameController,
-              enabled: false,
+              labelText: 'Name',
+              labelHintText: 'John Doe',
+              enable: false,
             ),
-            TextField(
+            const SizedBox(height: 10),
+            CustomTextField(
               controller: _countryController,
-              decoration: InputDecoration(
-                hintText: 'Country',
-              ),
+              labelText: 'Country',
+              labelHintText: 'USA',
             ),
-            TextField(
+            const SizedBox(height: 10),
+            CustomTextField(
               controller: _addressController,
-              decoration: InputDecoration(
-                hintText: 'Address',
-              ),
+              labelText: 'Address',
+              labelHintText: 'john@test.com',
             ),
-            TextField(
+            const SizedBox(height: 10),
+            CustomTextField(
               controller: _phoneController,
-              decoration: InputDecoration(
-                hintText: 'Phone',
-              ),
+              labelText: 'Phone',
+              labelHintText: '573192511111',
             ),
+            const SizedBox(height: 10),
           ],
         ),
       ),
