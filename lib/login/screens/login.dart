@@ -10,6 +10,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,11 +88,15 @@ class _LoginScreenState extends State<LoginScreen> {
             labelText: 'Email',
             labelHintText: 'example@email.com',
             labelIcon: Icons.email,
+            keyboardType: TextInputType.emailAddress,
+
           ),
           const CustomTextField(
             labelText: 'Password',
             labelHintText: '********',
             labelIcon: Icons.lock,
+            obscureText: true,
+
           ),
           const SizedBox(
             width: double.infinity,
