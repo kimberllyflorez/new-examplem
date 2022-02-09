@@ -8,6 +8,9 @@ class CustomTextField extends StatelessWidget {
   final IconData? labelIcon;
   final Color globalColor;
   final bool enable;
+  final TextInputType keyboardType;
+  final bool obscureText;
+  final String? Function(String?)? validator;
 
   const CustomTextField({
     Key? key,
@@ -17,6 +20,9 @@ class CustomTextField extends StatelessWidget {
     this.labelIcon,
     this.globalColor = CustomColors.primaryColor,
     this.enable = true,
+    this.keyboardType = TextInputType.text,
+    this.obscureText= false,
+    this.validator,
   }) : super(key: key);
 
   @override
@@ -26,9 +32,12 @@ class CustomTextField extends StatelessWidget {
       children: [
         Text(labelText),
         const SizedBox(height: 5),
-        TextField(
+        TextFormField(
           controller: controller,
           enabled: enable,
+          keyboardType: keyboardType,
+          obscureText: obscureText,
+          validator: validator,
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
             prefixIcon: labelIcon != null
