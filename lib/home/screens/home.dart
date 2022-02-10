@@ -3,6 +3,8 @@ import 'package:example_whit_github/profile/screens/profile.dart';
 import 'package:example_whit_github/theme/custom_colors.dart';
 import 'package:flutter/material.dart';
 
+import 'home_options.dart';
+
 
 class Home extends StatefulWidget {
 
@@ -16,12 +18,10 @@ class _HomeState extends State<Home> {
   int _selectIndex = 0;
 
   static List<Widget> _children = <Widget>[
-    //Home(),
-    Text('sdfsdgdf'),
+
+    HomeOptions(),
     Text('sdfds'),
-
     Profile(),
-
   ];
 
 
